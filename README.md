@@ -43,6 +43,8 @@ include Unionf
 a = UnionFind.new [:marlon, :pamella, :matheus]
 ```
 
+*Note: Any comparable type is compatible with this gem.*
+
 The return of a union is the size of the new set created.
 The find method for a set tells you what element represents that set.
 
@@ -56,8 +58,11 @@ a.connected? :marlon, :matheus # => false
 You can also find the size of the set, and the subsets.
 
 ```ruby
-a.size # => 4
-a.size? :marlon, :pamella # => 2
+a.size                    # => 4
+a.size? :marlon           # => 2
+a.union :marlon, :matheus # => 3
+a.size? :matheus          # => 3
+a.size? :pamella          # => 3
 ```
 
 You can acquire the elements of the set again.
