@@ -22,7 +22,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a new set:
+```ruby
+require 'unionf'
+
+include Unionf
+
+a = UnionFind.new [:marlon, :pamella, :matheus]
+```
+
+The return of a union is the size of the new set created.
+The find method for a set tells you what element represents that set.
+
+```ruby
+a.union :marlon, :pamella      # => 2
+a.find :marlon                 # => :pamella
+a.connected? :marlon, :pamella # => true
+a.connected? :marlon, :matheus # => false
+```
+
+You can also find the size of the set, and the subsets.
+
+```ruby
+a.size # => 4
+a.size? :marlon, :pamella # => 2
+```
+
+You can acquire the elements of the set again.
+
+```ruby
+a.elements # => [:marlon, :pamella, :matheus]
+```
 
 ## Development
 
